@@ -16,7 +16,7 @@ function App() {
         body: JSON.stringify({ text: message }),
       })
       const data = await res.json()
-      setResponse(data.response || data.error || JSON.stringify(data))
+      setResponse(JSON.stringify(data.response ?? data.error ?? data, null, 2))
     } catch (err) {
       setResponse('Error: ' + err.message)
     } finally {
